@@ -1,43 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:lopezwidgets/alerta_dialogo.dart';
+import 'package:lopezwidgets/container_animado.dart';
+import 'package:lopezwidgets/lista_animada.dart';
+import 'package:lopezwidgets/modelo_animado.dart';
+import 'package:lopezwidgets/widget_animado.dart';
+import 'package:lopezwidgets/filtro_de_fondo.dart';
+import 'package:lopezwidgets/pagina_uno.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(MiWidgets());
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  // This widget is the root of your application.
+class MiWidgets extends StatelessWidget {
+  const MiWidgets({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
-      theme: ThemeData(
-        // useMaterial3: false,
-        primarySwatch: Colors.blue,
-      ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
-        ),
-      ),
+      debugShowCheckedModeBanner: false,
+      title: 'Entre Paginas',
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const PantallaUno(),
+        '/pantalla2': (context) => const AlertaDialogo(),
+        '/pantalla3': (context) => const ContainerAnimado(),
+        '/pantalla4': (context) => const ListaAnimada(),
+        '/pantalla5': (context) => const ModeloAnimado(),
+        '/pantalla6': (context) => const WidgetAnimado(),
+        '/pantalla7': (context) => const FiltroFondo(),
+      },
     );
   }
 }
